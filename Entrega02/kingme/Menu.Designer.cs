@@ -183,11 +183,11 @@
             this.lblTeam.AutoSize = true;
             this.lblTeam.BackColor = System.Drawing.Color.Transparent;
             this.lblTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeam.Location = new System.Drawing.Point(314, 418);
+            this.lblTeam.Location = new System.Drawing.Point(299, 418);
             this.lblTeam.Name = "lblTeam";
-            this.lblTeam.Size = new System.Drawing.Size(114, 13);
+            this.lblTeam.Size = new System.Drawing.Size(132, 13);
             this.lblTeam.TabIndex = 35;
-            this.lblTeam.Text = "Windsor Guardians";
+            this.lblTeam.Text = "Guardiões de Windsor";
             // 
             // label5
             // 
@@ -263,7 +263,7 @@
             this.Controls.Add(this.btnMatches);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "menu";

@@ -78,5 +78,10 @@ namespace kingme
         {
             this.Close();
         }
+
+        private void lblTeam_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

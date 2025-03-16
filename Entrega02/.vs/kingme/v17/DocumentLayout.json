@@ -3,15 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\newgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\newgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|c:\\users\\otavi\\documents\\code\\king-me\\entrega02\\kingme\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|c:\\users\\otavi\\documents\\code\\king-me\\entrega02\\kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,24 +27,16 @@
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\game.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\newgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\newgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,11 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Game.cs [Design]",
               "DocumentMoniker": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Game.cs",
               "RelativeDocumentMoniker": "kingme\\Game.cs",
@@ -58,11 +58,12 @@
               "RelativeToolTip": "kingme\\Game.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T03:36:54.813Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "NewGame.cs [Design]",
               "DocumentMoniker": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\NewGame.cs",
               "RelativeDocumentMoniker": "kingme\\NewGame.cs",
@@ -88,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Menu.cs [Design]",
               "DocumentMoniker": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Menu.cs",
               "RelativeDocumentMoniker": "kingme\\Menu.cs",
@@ -96,7 +97,22 @@
               "RelativeToolTip": "kingme\\Menu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T03:37:12.313Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Game.cs",
+              "RelativeDocumentMoniker": "kingme\\Game.cs",
+              "ToolTip": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Game.cs",
+              "RelativeToolTip": "kingme\\Game.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAhwOMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T02:45:25.921Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -110,25 +126,26 @@
               "RelativeDocumentMoniker": "kingme\\Lobby.cs",
               "ToolTip": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Lobby.cs",
               "RelativeToolTip": "kingme\\Lobby.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAD4v1oAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAhwCkAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T00:37:28.013Z"
+              "WhenOpened": "2025-03-10T00:37:28.013Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Game.Designer.cs",
               "DocumentMoniker": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Game.Designer.cs",
               "RelativeDocumentMoniker": "kingme\\Game.Designer.cs",
               "ToolTip": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Game.Designer.cs",
               "RelativeToolTip": "kingme\\Game.Designer.cs",
-              "ViewState": "AgIAAAMBAAAAAAAAAAAAAAMBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADMBAAAAAAAAAAA3wEUBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T00:07:01.648Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Menu.cs",
               "RelativeDocumentMoniker": "kingme\\Menu.cs",
@@ -136,29 +153,18 @@
               "RelativeToolTip": "kingme\\Menu.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAD4vygAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T13:55:21.645Z"
+              "WhenOpened": "2025-03-09T13:55:21.645Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Game.cs",
-              "DocumentMoniker": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Game.cs",
-              "RelativeDocumentMoniker": "kingme\\Game.cs",
-              "ToolTip": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\Game.cs",
-              "RelativeToolTip": "kingme\\Game.cs",
-              "ViewState": "AgIAAIsAAAAAAAAAAAAywKQAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T02:45:25.921Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "NewGame.cs",
               "DocumentMoniker": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\NewGame.cs",
               "RelativeDocumentMoniker": "kingme\\NewGame.cs",
               "ToolTip": "C:\\Users\\otavi\\Documents\\code\\king-me\\Entrega02\\kingme\\NewGame.cs",
               "RelativeToolTip": "kingme\\NewGame.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAD4vxIAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAD4v1AAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T02:20:10.751Z",
               "EditorCaption": ""

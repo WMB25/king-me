@@ -108,9 +108,9 @@
             this.lblTeam.ForeColor = System.Drawing.Color.Black;
             this.lblTeam.Location = new System.Drawing.Point(202, 476);
             this.lblTeam.Name = "lblTeam";
-            this.lblTeam.Size = new System.Drawing.Size(114, 13);
+            this.lblTeam.Size = new System.Drawing.Size(132, 13);
             this.lblTeam.TabIndex = 39;
-            this.lblTeam.Text = "Windsor Guardians";
+            this.lblTeam.Text = "Guardiões de Windsor";
             // 
             // lblVersion
             // 
@@ -137,7 +137,7 @@
             this.Controls.Add(this.lstMatchesTitle);
             this.Controls.Add(this.lstMatches);
             this.Controls.Add(this.btnListMatches);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MinimumSize = new System.Drawing.Size(612, 547);
             this.Name = "Lobby";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

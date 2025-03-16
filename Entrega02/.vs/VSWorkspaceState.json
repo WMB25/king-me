@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\kingme"
+    "\\kingme",
+    "\\kingme\\bin",
+    "\\kingme\\bin\\Debug"
   ],
-  "SelectedNode": "\\kingme\\Game.cs",
+  "SelectedNode": "\\kingme\\bin\\Debug\\kingme.exe",
   "PreviewInSolutionExplorer": false
 }

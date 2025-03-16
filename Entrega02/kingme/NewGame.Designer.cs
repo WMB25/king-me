@@ -164,11 +164,12 @@
             this.lblTeam.BackColor = System.Drawing.Color.Transparent;
             this.lblTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblTeam.ForeColor = System.Drawing.Color.Black;
-            this.lblTeam.Location = new System.Drawing.Point(97, 508);
+            this.lblTeam.Location = new System.Drawing.Point(86, 508);
             this.lblTeam.Name = "lblTeam";
-            this.lblTeam.Size = new System.Drawing.Size(114, 13);
+            this.lblTeam.Size = new System.Drawing.Size(132, 13);
             this.lblTeam.TabIndex = 37;
-            this.lblTeam.Text = "Windsor Guardians";
+            this.lblTeam.Text = "Guardiões de Windsor";
+            this.lblTeam.Click += new System.EventHandler(this.lblTeam_Click);
             // 
             // lblVersion
             // 
@@ -199,7 +200,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::kingme.Properties.Resources.texture1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 542);
+            this.ClientSize = new System.Drawing.Size(800, 503);
             this.Controls.Add(this.lstMatchesTitle);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label5);
@@ -213,7 +214,7 @@
             this.Controls.Add(this.lblPasswordMatch);
             this.Controls.Add(this.txtMatchName);
             this.Controls.Add(this.lblNameMatch);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximumSize = new System.Drawing.Size(816, 542);
             this.MinimumSize = new System.Drawing.Size(800, 542);
             this.Name = "NewGame";
