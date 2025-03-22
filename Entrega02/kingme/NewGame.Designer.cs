@@ -48,21 +48,23 @@
             // 
             this.btnCreateNewMatch.BackColor = System.Drawing.Color.Black;
             this.btnCreateNewMatch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCreateNewMatch.Font = new System.Drawing.Font("Old English Text MT", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnCreateNewMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.btnCreateNewMatch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCreateNewMatch.Location = new System.Drawing.Point(434, 345);
+            this.btnCreateNewMatch.Location = new System.Drawing.Point(579, 425);
+            this.btnCreateNewMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreateNewMatch.Name = "btnCreateNewMatch";
-            this.btnCreateNewMatch.Size = new System.Drawing.Size(210, 35);
+            this.btnCreateNewMatch.Size = new System.Drawing.Size(280, 43);
             this.btnCreateNewMatch.TabIndex = 23;
             this.btnCreateNewMatch.Text = "Criar partida";
             this.btnCreateNewMatch.UseVisualStyleBackColor = false;
-            this.btnCreateNewMatch.Click += new System.EventHandler(this.btnCreateNewMatch_Click);
+            this.btnCreateNewMatch.Click += new System.EventHandler(this.BtnCreateNewMatch_Click);
             // 
             // txtGroupNameMatch
             // 
-            this.txtGroupNameMatch.Location = new System.Drawing.Point(434, 298);
+            this.txtGroupNameMatch.Location = new System.Drawing.Point(579, 367);
+            this.txtGroupNameMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGroupNameMatch.Name = "txtGroupNameMatch";
-            this.txtGroupNameMatch.Size = new System.Drawing.Size(210, 20);
+            this.txtGroupNameMatch.Size = new System.Drawing.Size(279, 22);
             this.txtGroupNameMatch.TabIndex = 22;
             // 
             // lblGroupNameMatch
@@ -71,19 +73,22 @@
             this.lblGroupNameMatch.BackColor = System.Drawing.Color.Transparent;
             this.lblGroupNameMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGroupNameMatch.ForeColor = System.Drawing.Color.Black;
-            this.lblGroupNameMatch.Location = new System.Drawing.Point(431, 279);
+            this.lblGroupNameMatch.Location = new System.Drawing.Point(575, 343);
+            this.lblGroupNameMatch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGroupNameMatch.Name = "lblGroupNameMatch";
-            this.lblGroupNameMatch.Size = new System.Drawing.Size(97, 13);
+            this.lblGroupNameMatch.Size = new System.Drawing.Size(124, 17);
             this.lblGroupNameMatch.TabIndex = 21;
             this.lblGroupNameMatch.Text = "Nome do grupo:";
             // 
             // txtPasswordMatch
             // 
-            this.txtPasswordMatch.Location = new System.Drawing.Point(434, 246);
+            this.txtPasswordMatch.Location = new System.Drawing.Point(579, 303);
+            this.txtPasswordMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPasswordMatch.Name = "txtPasswordMatch";
             this.txtPasswordMatch.PasswordChar = '*';
-            this.txtPasswordMatch.Size = new System.Drawing.Size(210, 20);
+            this.txtPasswordMatch.Size = new System.Drawing.Size(279, 22);
             this.txtPasswordMatch.TabIndex = 20;
+            this.txtPasswordMatch.TextChanged += new System.EventHandler(this.txtPasswordMatch_TextChanged);
             // 
             // lblPasswordMatch
             // 
@@ -91,18 +96,20 @@
             this.lblPasswordMatch.BackColor = System.Drawing.Color.Transparent;
             this.lblPasswordMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPasswordMatch.ForeColor = System.Drawing.Color.Black;
-            this.lblPasswordMatch.Location = new System.Drawing.Point(431, 227);
+            this.lblPasswordMatch.Location = new System.Drawing.Point(575, 279);
+            this.lblPasswordMatch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPasswordMatch.Name = "lblPasswordMatch";
-            this.lblPasswordMatch.Size = new System.Drawing.Size(47, 13);
+            this.lblPasswordMatch.Size = new System.Drawing.Size(59, 17);
             this.lblPasswordMatch.TabIndex = 19;
             this.lblPasswordMatch.Text = "Senha:";
             // 
             // txtMatchName
             // 
             this.txtMatchName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMatchName.Location = new System.Drawing.Point(434, 198);
+            this.txtMatchName.Location = new System.Drawing.Point(579, 244);
+            this.txtMatchName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMatchName.Name = "txtMatchName";
-            this.txtMatchName.Size = new System.Drawing.Size(210, 20);
+            this.txtMatchName.Size = new System.Drawing.Size(279, 22);
             this.txtMatchName.TabIndex = 18;
             // 
             // lblNameMatch
@@ -111,10 +118,11 @@
             this.lblNameMatch.BackColor = System.Drawing.Color.Transparent;
             this.lblNameMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameMatch.ForeColor = System.Drawing.Color.Black;
-            this.lblNameMatch.Location = new System.Drawing.Point(431, 180);
+            this.lblNameMatch.Location = new System.Drawing.Point(575, 222);
+            this.lblNameMatch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNameMatch.Name = "lblNameMatch";
-            this.lblNameMatch.Padding = new System.Windows.Forms.Padding(0, 0, 91, 0);
-            this.lblNameMatch.Size = new System.Drawing.Size(195, 13);
+            this.lblNameMatch.Padding = new System.Windows.Forms.Padding(0, 0, 121, 0);
+            this.lblNameMatch.Size = new System.Drawing.Size(254, 17);
             this.lblNameMatch.TabIndex = 17;
             this.lblNameMatch.Text = "Nome da partida:";
             // 
@@ -124,10 +132,10 @@
             this.pictureBox1.BackgroundImage = global::kingme.Properties.Resources.wood;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = global::kingme.Properties.Resources.king;
-            this.pictureBox1.Location = new System.Drawing.Point(89, 71);
+            this.pictureBox1.Location = new System.Drawing.Point(119, 87);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 399);
+            this.pictureBox1.Size = new System.Drawing.Size(300, 491);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
@@ -138,13 +146,14 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnBack.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBack.Location = new System.Drawing.Point(745, 12);
+            this.btnBack.Location = new System.Drawing.Point(993, 15);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(43, 32);
+            this.btnBack.Size = new System.Drawing.Size(57, 39);
             this.btnBack.TabIndex = 26;
             this.btnBack.Text = "X";
             this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // label5
             // 
@@ -152,9 +161,10 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(242, 508);
+            this.label5.Location = new System.Drawing.Point(323, 625);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 38;
             this.label5.Text = "Versão:";
             // 
@@ -164,9 +174,10 @@
             this.lblTeam.BackColor = System.Drawing.Color.Transparent;
             this.lblTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblTeam.ForeColor = System.Drawing.Color.Black;
-            this.lblTeam.Location = new System.Drawing.Point(86, 508);
+            this.lblTeam.Location = new System.Drawing.Point(115, 625);
+            this.lblTeam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTeam.Name = "lblTeam";
-            this.lblTeam.Size = new System.Drawing.Size(132, 13);
+            this.lblTeam.Size = new System.Drawing.Size(170, 17);
             this.lblTeam.TabIndex = 37;
             this.lblTeam.Text = "Guardiões de Windsor";
             // 
@@ -176,30 +187,32 @@
             this.lblVersion.BackColor = System.Drawing.Color.Transparent;
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblVersion.ForeColor = System.Drawing.Color.Black;
-            this.lblVersion.Location = new System.Drawing.Point(298, 508);
+            this.lblVersion.Location = new System.Drawing.Point(397, 625);
+            this.lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(0, 13);
+            this.lblVersion.Size = new System.Drawing.Size(0, 17);
             this.lblVersion.TabIndex = 39;
             // 
             // lstMatchesTitle
             // 
             this.lstMatchesTitle.AutoSize = true;
             this.lstMatchesTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lstMatchesTitle.Font = new System.Drawing.Font("Old English Text MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstMatchesTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstMatchesTitle.ForeColor = System.Drawing.Color.Black;
-            this.lstMatchesTitle.Location = new System.Drawing.Point(429, 129);
+            this.lstMatchesTitle.Location = new System.Drawing.Point(572, 159);
+            this.lstMatchesTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lstMatchesTitle.Name = "lstMatchesTitle";
-            this.lstMatchesTitle.Size = new System.Drawing.Size(163, 32);
+            this.lstMatchesTitle.Size = new System.Drawing.Size(215, 39);
             this.lstMatchesTitle.TabIndex = 40;
             this.lstMatchesTitle.Text = "Informações";
             // 
             // NewGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::kingme.Properties.Resources.texture1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 503);
+            this.ClientSize = new System.Drawing.Size(1064, 609);
             this.Controls.Add(this.lstMatchesTitle);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label5);
@@ -214,8 +227,9 @@
             this.Controls.Add(this.txtMatchName);
             this.Controls.Add(this.lblNameMatch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(816, 542);
-            this.MinimumSize = new System.Drawing.Size(800, 542);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(1082, 656);
+            this.MinimumSize = new System.Drawing.Size(1061, 656);
             this.Name = "NewGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewGame";

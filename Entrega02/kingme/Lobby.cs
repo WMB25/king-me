@@ -18,11 +18,11 @@ namespace kingme
         public Lobby()
         {
             InitializeComponent();
-            listMatches();
+            ListMatches();
             lblVersion.Text = Jogo.versao;
         }
 
-        private void listMatches()
+        private void ListMatches()
         {
             string matchList = Jogo.ListarPartidas("T");
             if (errorHandler.IsGameMethodReturnError(matchList))
@@ -38,14 +38,35 @@ namespace kingme
             }
         }
 
-        private void btnListMatches_Click(object sender, EventArgs e)
+        private void BtnListMatches_Click(object sender, EventArgs e)
         {
-            listMatches();
+            ListMatches();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnSetRoom_Click(object sender, EventArgs e)
+        {
+            if (lstMatches.SelectedItem != null)
+            {
+
+                string selectedMatch = lstMatches.SelectedItem.ToString();
+                string[] matchInfo = selectedMatch.Split(',');
+                string matchId = matchInfo[0].Trim();
+
+                if (this.Owner is Menu ownerMenu)
+                {
+                    ownerMenu.SetMatchID(matchId);
+                }
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma partida antes de confirmar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

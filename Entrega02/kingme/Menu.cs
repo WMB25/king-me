@@ -16,25 +16,35 @@ namespace kingme
     {
         Player player = new Player();
         ErrorHandler errorHandler = new ErrorHandler();
+        private string MatchID;
         public Menu()
         {
             InitializeComponent();
             lblVersion.Text = Jogo.versao;
         }
 
-        private void btnMatches_Click(object sender, EventArgs e)
+        private void BtnMatches_Click(object sender, EventArgs e)
         {
             Lobby lobby = new Lobby();
+            lobby.Owner = this;
             lobby.ShowDialog();
         }
 
-        private void btnNewGame_Click_1(object sender, EventArgs e)
+        private void BtnNewGame_Click_1(object sender, EventArgs e)
         {
             NewGame game = new NewGame();
+            game.Owner = this;
             game.ShowDialog();
         }
 
-        private void btnPlay_Click(object sender, EventArgs e)
+        public void SetMatchID(string id)
+        {
+            MatchID = id;
+            txtIdMatch.Text = id;
+        }
+
+
+        private void BtnPlay_Click(object sender, EventArgs e)
         {
             string matchId = txtIdMatch.Text;
             string playerName = txtPlayerName.Text;
@@ -45,7 +55,7 @@ namespace kingme
                 errorHandler.IsFieldBlank("Senha da partida", passCurrentMatch) ||
                 errorHandler.IsFieldContainsSpecialCharacters("Id da partida", matchId))
             {
-                clearFields();
+                ClearFields();
                 return;
             }
 
@@ -53,7 +63,7 @@ namespace kingme
 
             if (errorHandler.IsGameMethodReturnError(credentials))
             {
-                clearFields();
+                ClearFields();
                 return;
             }
 
@@ -65,24 +75,29 @@ namespace kingme
             player.Password = matchListSanitized[1];
 
             Game game = new Game();
-            game.playerId = player.Id.ToString();
-            game.playerPass = player.Password;
-            game.matchId = txtIdMatch.Text;
+            game.PlayerId = player.Id.ToString();
+            game.PlayerPass = player.Password;
+            game.MatchId = txtIdMatch.Text;
 
-            game.updateGameContent();
+            game.UpdateGameContent();
             game.ShowDialog();
         }
 
-        private void clearFields()
+        private void ClearFields()
         {
             txtIdMatch.Clear();
             txtPasswordCurrentMatch.Clear();
             txtPlayerName.Clear();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtIdMatch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

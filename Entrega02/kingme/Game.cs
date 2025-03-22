@@ -15,116 +15,109 @@ namespace kingme
 {
     public partial class Game : Form
     {
-        public string playerId { get; set; }
-        public string playerPass { get; set; }
-        public string matchId { get; set; }
-        private string[] matchPlayersList { get; set; }
-        private string[] characterList { get; set; }
+        public string PlayerId { get; set; }
+        public string PlayerPass { get; set; }
+        public string MatchId { get; set; }
+        private string[] MatchPlayersList { get; set; }
+        private string[] CharacterList { get; set; }
 
         Player player = new Player();
         public Game()
         {
             InitializeComponent();
-            listCharacters();
+            ListCharacters();
             lblVersion.Text = Jogo.versao;
         }
 
-        public void updateGameContent()
+        public void UpdateGameContent()
         {
             txtPlayerId.Text = player.Id.ToString();
-            txtPlayerPassword.Text = playerPass;
+            txtPlayerPassword.Text = PlayerPass;
         }
-
         private void Game_Load(object sender, EventArgs e)
         {
         }
-
-        private void btnInitializeMatch_Click(object sender, EventArgs e)
-        {
-            int playerId = Convert.ToInt32(this.playerId);
-            string playerPassword = playerPass;
-
-            if (!initializeMatchValidations(playerId.ToString(), playerPassword)) 
+        private void BtnInitializeMatch_Click(object sender, EventArgs e)
+        {            
+            if (!InitializeMatchValidations(this.PlayerId, this.PlayerPass))
             {
                 return;
             }
 
-            string inicio = Jogo.Iniciar(playerId, playerPassword);
+            string inicio = Jogo.Iniciar(Convert.ToInt32(this.PlayerId), this.PlayerPass);
 
-            if (errorPopUpGenerate(inicio))
+            if (ErrorPopUpGenerate(inicio))
             {
                 return;
             }
 
             MessageBox.Show("A partida foi iniciada!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
-
-        private void lstMatchPlayers_SelectedIndexChanged(object sender, EventArgs e)
+        private void LstMatchPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-
-        public bool initializeMatchValidations(string playerId, string playerPassword)
+        public bool InitializeMatchValidations(string playerId, string playerPassword)
         {
-            var validations = new[]
-            {
+            //SIMPLIFICADO
+
+            var validations = new[]            
+            {                        
              new Tuple<string, string>(playerId, "O id do jogador não pode ser vazio"),
              new Tuple<string, string>(playerPassword, "A senha do jogador não pode ser vazia"),
             };
 
-            foreach (var entry in validations)
-            {
-                if (string.IsNullOrWhiteSpace(entry.Item1))
+                foreach (var entry in validations)
                 {
-                    MessageBox.Show(entry.Item2, "Bad Request", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    if (string.IsNullOrWhiteSpace(entry.Item1))
+                    {
+                        MessageBox.Show(entry.Item2, "Bad Request", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                 }
-
-            }
             return true;
         }
 
-        private void getListOfPlayers()
+        private void GetListOfPlayers()
         {
-            string matchPlayersContent = Jogo.ListarJogadores(Convert.ToInt32(this.matchId));
-
-            matchPlayersContent = matchPlayersContent.Replace("\r", "");
-            this.matchPlayersList = matchPlayersContent.Split('\n');  
+            //Reorganizado
+            string matchPlayersContent = Jogo.ListarJogadores(Convert.ToInt32(this.MatchId));
+            MatchPlayersList = matchPlayersContent.Replace("\r", "").Split('\n');
         }
 
-        private void updatePlayerList()
+        private void UpdatePlayerList()
         {
-            getListOfPlayers();
+
+            GetListOfPlayers();
             lstMatchPlayers.Items.Clear();
 
-            if (this.matchPlayersList[0] == "")
+            if (this.MatchPlayersList[0] == "")
             {
                 MessageBox.Show("Sem jogadores na partida", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            for (int i = 0; i < matchPlayersList.Length; i++)
+            for (int i = 0; i < MatchPlayersList.Length; i++)
             {
-                string player = matchPlayersList[i];
-                lstMatchPlayers.Items.Add(matchPlayersList[i]);
-            }
+                string player = MatchPlayersList[i];
+                lstMatchPlayers.Items.Add(MatchPlayersList[i]);
+            }          
         }
 
-        private void btnUpdatePlayerList_Click(object sender, EventArgs e)
+        private void BtnUpdatePlayerList_Click(object sender, EventArgs e)
         {
-            updatePlayerList();
+            UpdatePlayerList();
         }
 
-        private void btnListCards_Click(object sender, EventArgs e)
+        private void BtnListCards_Click(object sender, EventArgs e)
         {
-            string playerCards = listPlayerCards();
+            string playerCards = ListPlayerCards();
             if (playerCards.Contains("Error"))
             {
                 return;
             }
         }
 
-        public bool errorPopUpGenerate(string content)
+        public bool ErrorPopUpGenerate(string content)
         {
             if (content.Contains("ERRO"))
             {
@@ -136,39 +129,38 @@ namespace kingme
             return false;
         }
 
-        private void listCharacters()
+        private void ListCharacters()
         {
-            string characters = Jogo.ListarPersonagens();
-            characters = characters.Replace("\r", "");
-            this.characterList = characters.Split('\n');
 
-            for (int i = 0; i < this.characterList.Length - 1; i++)
+            string characters = Jogo.ListarPersonagens();
+            CharacterList = characters.Replace("\r", "").Split('\n');
+
+            for (int i = 0; i < this.CharacterList.Length - 1; i++)
             {
-                string character = this.characterList[i];
+                string character = this.CharacterList[i];
                 lstFavorites.Items.Add(character);
             }
         }
 
-        private void btnLeave_Click(object sender, EventArgs e)
+        private void BtnLeave_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private string listPlayerCards()
+        private string ListPlayerCards()
         {
             string playerCards = Jogo.ListarCartas(Convert.ToInt32(txtPlayerId.Text), txtPlayerPassword.Text);
 
-            if (errorPopUpGenerate(playerCards))
+            if (ErrorPopUpGenerate(playerCards))
             {
                 return "Error";
             }
 
-            char[] listPlayerCards = playerCards.ToCharArray();
+            var listPlayerCards = playerCards.ToCharArray();
 
-            for (int i = 0; i < listPlayerCards.Length - 1; i++)
+            foreach (var cardPrefix in listPlayerCards)
             {
-                char cardPrefix = listPlayerCards[i];
-                foreach (string character in this.characterList)
+                foreach (var character in CharacterList)
                 {
                     if (character.StartsWith(cardPrefix.ToString()))
                     {
@@ -180,21 +172,21 @@ namespace kingme
             return "Cartas listadas";
         }
 
-        private void btnSetCharacter_Click(object sender, EventArgs e)
+        private void BtnSetCharacter_Click(object sender, EventArgs e)
         {
-            if (getCharacter() == "null" || lstSections.SelectedItem == null)
+            if (GetCharacter() == "null" || lstSections.SelectedItem == null)
             {
                 MessageBox.Show("Você deve selecionar um personagem e um setor", "Erro", MessageBoxButtons.OK);
                 return;
             }
 
-            string character = getCharacter();
+            string character = GetCharacter();
             string section = (string)lstSections.SelectedItem;
             string characterInitialLetter = character.Substring(0, 1).ToUpper();
 
-            string setCharacter = Jogo.ColocarPersonagem(Convert.ToInt32(this.playerId), this.playerPass, Convert.ToInt32(section), characterInitialLetter);
+            string setCharacter = Jogo.ColocarPersonagem(Convert.ToInt32(PlayerId), this.PlayerPass, Convert.ToInt32(section), characterInitialLetter);
 
-            if (errorPopUpGenerate(setCharacter))
+            if (ErrorPopUpGenerate(setCharacter))
             {
                 return;
             }
@@ -206,34 +198,25 @@ namespace kingme
             for (int i = 0; i < listOfSections.Length; i++)
             {
                 string currentSection = listOfSections[i];
-            }
+            }           
         }
 
-        private void btnVerifyTurn_Click(object sender, EventArgs e)
+        private void BtnVerifyTurn_Click(object sender, EventArgs e)
         {
-            string turn = Jogo.VerificarVez(Convert.ToInt32(this.matchId));
-            if (errorPopUpGenerate(turn))
+            string turn = Jogo.VerificarVez(Convert.ToInt32(this.MatchId));
+            if (ErrorPopUpGenerate(turn))
             {
                 return;
-            } 
-            turn = turn.Replace("\r", "");
-            string[] turnStateList = turn.Split('\n');
-
-
-            string currentTurnPlayer = turnStateList[0];
-            string[] currentTurnPlayerContent = currentTurnPlayer.Split(',');
-            getListOfPlayers();
-
-            for (int i = 0; i < turnStateList.Length; i++)
-            {
-                string currentTurn = turnStateList[i];
             }
 
-            for (int i = 0; i < this.matchPlayersList.Length - 1; i++)
+            var turnStateList = turn.Replace("\r", "").Split('\n');
+            var currentTurnPlayerContent = turnStateList[0].Split(',');
+            GetListOfPlayers();
+
+            foreach (var player in MatchPlayersList)
             {
-                string player = this.matchPlayersList[i];
-                string[] playerContent = player.Split(',');
- 
+                var playerContent = player.Split(',');
+
                 if (playerContent[0] == currentTurnPlayerContent[0])
                 {
                     lblPlayerIdValue.Text = currentTurnPlayerContent[0];
@@ -243,24 +226,24 @@ namespace kingme
             }
         }
 
-        public string getCharacter()
+        public string GetCharacter()
         {
             var characters = new[]
             {
-             new Tuple<RadioButton, string>(rdoBeatriz, "Beatriz Paiva"),
-             new Tuple<RadioButton, string>(rdoAdilson, "Adilson Konrad"),
-             new Tuple<RadioButton, string>(rdoMario, "Mario Toledo"),
-             new Tuple<RadioButton, string>(rdoDouglas, "Douglas Baquiao"),
-             new Tuple<RadioButton, string>(rdoHeredia, "Heredia"),
-             new Tuple<RadioButton, string>(rdoClaro, "Claro"),
-             new Tuple<RadioButton, string>(rdoEduardo, "Eduardo Takeo"),
-             new Tuple<RadioButton, string>(rdoGuilherme, "Guilherme Rey"),
-             new Tuple<RadioButton, string>(rdoKelly, "Kelly Kiyumi"),
-             new Tuple<RadioButton, string>(rdoLeonardo, "Leonardo Takuno"),
-             new Tuple<RadioButton, string>(rdoToshio, "Toshio"),
-             new Tuple<RadioButton, string>(rdoQuintas, "Quintas"),
-             new Tuple<RadioButton, string>(rdoRanulfo, "Ranulfo"),
-            };
+                    new Tuple<RadioButton, string>(rdoBeatriz, "Beatriz Paiva"),
+                    new Tuple<RadioButton, string>(rdoAdilson, "Adilson Konrad"),
+                    new Tuple<RadioButton, string>(rdoMario, "Mario Toledo"),
+                    new Tuple<RadioButton, string>(rdoDouglas, "Douglas Baquiao"),
+                    new Tuple<RadioButton, string>(rdoHeredia, "Heredia"),
+                    new Tuple<RadioButton, string>(rdoClaro, "Claro"),
+                    new Tuple<RadioButton, string>(rdoEduardo, "Eduardo Takeo"),
+                    new Tuple<RadioButton, string>(rdoGuilherme, "Guilherme Rey"),
+                    new Tuple<RadioButton, string>(rdoKelly, "Kelly Kiyumi"),
+                    new Tuple<RadioButton, string>(rdoLeonardo, "Leonardo Takuno"),
+                    new Tuple<RadioButton, string>(rdoToshio, "Toshio"),
+                    new Tuple<RadioButton, string>(rdoQuintas, "Quintas"),
+                    new Tuple<RadioButton, string>(rdoRanulfo, "Ranulfo"),
+                };
 
             foreach (var character in characters)
             {
@@ -270,6 +253,11 @@ namespace kingme
                 }
             }
             return "null";
+        }
+
+        private void btnRanulfo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
