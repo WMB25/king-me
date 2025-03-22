@@ -169,7 +169,6 @@
             this.lblTeam.Size = new System.Drawing.Size(132, 13);
             this.lblTeam.TabIndex = 37;
             this.lblTeam.Text = "Guardiões de Windsor";
-            this.lblTeam.Click += new System.EventHandler(this.lblTeam_Click);
             // 
             // lblVersion
             // 

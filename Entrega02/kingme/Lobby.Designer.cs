@@ -59,8 +59,6 @@
             this.lstMatches.Name = "lstMatches";
             this.lstMatches.Size = new System.Drawing.Size(283, 316);
             this.lstMatches.TabIndex = 4;
-            this.lstMatches.SelectedIndexChanged += new System.EventHandler(this.lstMatches_SelectedIndexChanged);
-            // 
             // lstMatchesTitle
             // 
             this.lstMatchesTitle.AutoSize = true;
@@ -72,7 +70,6 @@
             this.lstMatchesTitle.Size = new System.Drawing.Size(216, 32);
             this.lstMatchesTitle.TabIndex = 7;
             this.lstMatchesTitle.Text = "Lista de partidas";
-            this.lstMatchesTitle.Click += new System.EventHandler(this.lstMatchesTitle_Click);
             // 
             // btnBack
             // 
@@ -142,7 +139,6 @@
             this.Name = "Lobby";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lobby King Me";
-            this.Load += new System.EventHandler(this.lobby_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

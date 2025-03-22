@@ -20,6 +20,8 @@ namespace kingme
         public string matchId { get; set; }
         private string[] matchPlayersList { get; set; }
         private string[] characterList { get; set; }
+
+        Player player = new Player();
         public Game()
         {
             InitializeComponent();
@@ -29,8 +31,8 @@ namespace kingme
 
         public void updateGameContent()
         {
-            txtPlayerId.Text = this.playerId;
-            txtPlayerPassword.Text = this.playerPass;
+            txtPlayerId.Text = player.Id.ToString();
+            txtPlayerPassword.Text = playerPass;
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -39,15 +41,15 @@ namespace kingme
 
         private void btnInitializeMatch_Click(object sender, EventArgs e)
         {
-            string playerId = this.playerId;
-            string playerPassword = this.playerPass;
+            int playerId = Convert.ToInt32(this.playerId);
+            string playerPassword = playerPass;
 
-            if (!initializeMatchValidations(playerId.ToString(), playerPassword))
+            if (!initializeMatchValidations(playerId.ToString(), playerPassword)) 
             {
                 return;
             }
 
-            string inicio = Jogo.Iniciar(Convert.ToInt32(txtPlayerId.Text), txtPlayerPassword.Text);
+            string inicio = Jogo.Iniciar(playerId, playerPassword);
 
             if (errorPopUpGenerate(inicio))
             {
@@ -180,13 +182,13 @@ namespace kingme
 
         private void btnSetCharacter_Click(object sender, EventArgs e)
         {
-            if (lstFavorites.SelectedItem == null || lstSections.SelectedItem == null)
+            if (getCharacter() == "null" || lstSections.SelectedItem == null)
             {
                 MessageBox.Show("Você deve selecionar um personagem e um setor", "Erro", MessageBoxButtons.OK);
                 return;
             }
 
-            string character = (string)lstFavorites.SelectedItem;
+            string character = getCharacter();
             string section = (string)lstSections.SelectedItem;
             string characterInitialLetter = character.Substring(0, 1).ToUpper();
 
@@ -200,12 +202,10 @@ namespace kingme
             setCharacter = setCharacter.Replace("\r", "");
             string[] listOfSections = setCharacter.Split('\n');
 
-            lstGameState.Items.Clear();
 
             for (int i = 0; i < listOfSections.Length; i++)
             {
                 string currentSection = listOfSections[i];
-                lstGameState.Items.Add(currentSection + "\n");
             }
         }
 
@@ -219,7 +219,6 @@ namespace kingme
             turn = turn.Replace("\r", "");
             string[] turnStateList = turn.Split('\n');
 
-            lstGameState.Items.Clear();
 
             string currentTurnPlayer = turnStateList[0];
             string[] currentTurnPlayerContent = currentTurnPlayer.Split(',');
@@ -228,7 +227,6 @@ namespace kingme
             for (int i = 0; i < turnStateList.Length; i++)
             {
                 string currentTurn = turnStateList[i];
-                lstGameState.Items.Add(currentTurn + "\n");
             }
 
             for (int i = 0; i < this.matchPlayersList.Length - 1; i++)
@@ -243,6 +241,35 @@ namespace kingme
                     return;
                 }
             }
+        }
+
+        public string getCharacter()
+        {
+            var characters = new[]
+            {
+             new Tuple<RadioButton, string>(rdoBeatriz, "Beatriz Paiva"),
+             new Tuple<RadioButton, string>(rdoAdilson, "Adilson Konrad"),
+             new Tuple<RadioButton, string>(rdoMario, "Mario Toledo"),
+             new Tuple<RadioButton, string>(rdoDouglas, "Douglas Baquiao"),
+             new Tuple<RadioButton, string>(rdoHeredia, "Heredia"),
+             new Tuple<RadioButton, string>(rdoClaro, "Claro"),
+             new Tuple<RadioButton, string>(rdoEduardo, "Eduardo Takeo"),
+             new Tuple<RadioButton, string>(rdoGuilherme, "Guilherme Rey"),
+             new Tuple<RadioButton, string>(rdoKelly, "Kelly Kiyumi"),
+             new Tuple<RadioButton, string>(rdoLeonardo, "Leonardo Takuno"),
+             new Tuple<RadioButton, string>(rdoToshio, "Toshio"),
+             new Tuple<RadioButton, string>(rdoQuintas, "Quintas"),
+             new Tuple<RadioButton, string>(rdoRanulfo, "Ranulfo"),
+            };
+
+            foreach (var character in characters)
+            {
+                if (character.Item1.Checked)
+                {
+                    return character.Item2;
+                }
+            }
+            return "null";
         }
     }
 }
