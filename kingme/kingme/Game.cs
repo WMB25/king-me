@@ -24,15 +24,43 @@ namespace kingme
         private string[] avaliableCharacters { get; set; }
         private int[] sectorsList { get; set; }
 
+        private int messageDisplayTime = 0;
+
         Match match = new Match();
         Player player = new Player();
         ErrorHandler errorHandler = new ErrorHandler();
+
+        private string SelectedCharacter;
+
+        private void SelectedRandomCharacter()
+        {
+            try
+            {
+
+                if (characterList == null || characterList.Length == 0)
+                {
+                    throw new Exception("Lista de personagens não carregada");
+                }
+
+                Random rand = new Random();
+                int index = rand.Next(characterList.Length);
+                SelectedCharacter = characterList[index];
+
+                MessageBox.Show($"Personagem selecionado: {SelectedCharacter}", "Seu Personagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                errorHandler.ThrowMessageError($"Erro a selecionar personagem: {ex.Message}");
+            }
+        }
 
         public Game(int playerId, string playerName, string playerPassword, int matchId, string matchPassword)
         {
             InitializeComponent();
             lblVersion.Text = Jogo.versao;
-            
+
+
+
             match.SetId(matchId);
             match.SetPassword(matchPassword);
 
@@ -56,7 +84,13 @@ namespace kingme
                 "Toshio",
             };
 
-           this.avaliableCharacters = new string[]{
+            if (characterList == null || characterList.Length == 0)
+            {
+                throw new ArgumentException("Lista de personagens não foi carregada corretamente");
+            }
+            SelectedRandomCharacter();
+
+            this.avaliableCharacters = new string[]{
                 "Adilson Konrad",
                 "Beatriz Paiva",
                 "Claro",
@@ -107,7 +141,7 @@ namespace kingme
 
         private void updatePlayerList()
         {
-            List <string> players = match.GetPlayers(match.GetId());
+            List<string> players = match.GetPlayers(match.GetId());
             lstMatchPlayers.Items.Clear();
 
             for (int i = 0; i < players.Count; i++)
@@ -124,7 +158,7 @@ namespace kingme
 
         private void btnListCards_Click(object sender, EventArgs e)
         {
-            listPlayerCards(); 
+            listPlayerCards();
         }
 
         private void btnLeave_Click(object sender, EventArgs e)
@@ -203,7 +237,7 @@ namespace kingme
                 string currentTurn = turnStateList[i];
             }
 
-            List <string> players = match.GetPlayers(match.GetId());
+            List<string> players = match.GetPlayers(match.GetId());
 
             for (int i = 0; i < players.Count - 1; i++)
             {
@@ -220,7 +254,7 @@ namespace kingme
             {
                 setCharacterInSector(turnStateList);
             }
-               
+
         }
 
         public string getCharacter()
@@ -244,7 +278,7 @@ namespace kingme
 
             foreach (var character in characters)
             {
-                if (character.Item1.Checked)
+                if (character.Item1.Checked && !string.IsNullOrEmpty(character.Item2) && avaliableCharacters.Contains(character.Item2))
                 {
                     return character.Item2;
                 }
@@ -266,7 +300,7 @@ namespace kingme
               new Tuple<int, PictureBox>(10, pboSetorDez),
            };
 
-           for (int i = 1; i < gameState.Length - 1; i++)
+            for (int i = 1; i < gameState.Length - 1; i++)
             {
                 string[] characterDetails = gameState[i].Split(',');
                 int characterSector = Convert.ToInt32(characterDetails[0]);
@@ -282,7 +316,7 @@ namespace kingme
                 }
             }
         }
-        
+
         public Button getCharacterButton(string initialLetter)
         {
             var characterButtons = new[]
@@ -440,9 +474,9 @@ namespace kingme
 
         private void updateAvaliableCharacters(string[] turnStateList)
         {
-           string[] currentTablePositionList = getCurrentTablePosition(turnStateList);
-           for (int i = 0; i < currentTablePositionList.Length - 1; i++)
-           {
+            string[] currentTablePositionList = getCurrentTablePosition(turnStateList);
+            for (int i = 0; i < currentTablePositionList.Length - 1; i++)
+            {
                 string line = currentTablePositionList[i];
                 if (String.IsNullOrEmpty(line))
                 {
@@ -465,44 +499,68 @@ namespace kingme
         private void verifyTurn()
         {
             string gameState = Jogo.VerificarVez(match.GetId());
+            if (errorHandler.checkForError(gameState)) { return; }
 
-            if (errorHandler.checkForErrorAutomate(gameState))
+            string[] parts = gameState.Split(',');
+            if (parts.Length < 4) { return; }
+
+            string phase = parts[3].Trim().ToUpper();
+            string currentPlayeerId = parts[0].Trim();
+
+            if(currentPlayeerId != player.GetId().ToString())
             {
+                if (!isMessageDisplayed)
+                {
+                    errorHandler.ThrowMessageError("Não é a vez deste jogador");
+                    isMessageDisplayed = true;
+                }
                 return;
             }
-
-            gameState = gameState.Replace("\r", "");
-            string[] gameStateList = gameState.Split('\n');
-            automateVerifyTurn();
-
-            string[] turn = getCurrentGameTurn(gameStateList);
-            string turnPlayerId = turn[0];
-            string playerId = player.GetId().ToString();
-            if (turnPlayerId == playerId)
+            isMessageDisplayed = false;
+            
+            switch (phase)
             {
-                string phase = turn[turn.Length - 1].ToUpper();
-
-                if (phase == "S")
-                {
-                    if (getCurrentTablePosition(gameStateList).Length != 0)
-                    {
-                        updateAvaliableCharacters(gameStateList);
-                        updateAvaliableSectors(gameStateList);
-                    }
-
-                    string characterInitialLetter = this.avaliableCharacters[0].Substring(0, 1);
-                    string setCharacter = Jogo.ColocarPersonagem(player.GetId(), player.GetPassword(), this.sectorsList[0], characterInitialLetter);
-
-                    automateVerifyTurn();
-                }
+                case "S":
+                    automateSetup();
+                    break;
+                case "P":
+                    automatePromotion();
+                    break;
+                case "V":
+                    automateVoting();
+                    break;
             }
 
-            return;
+        }
+
+        private IEnumerable<string> GetPrioritizedCharacters()
+        {
+            string playerCards = player.GetCards();
+            char[] cardsInitial = playerCards.ToCharArray();
+
+            return this.avaliableCharacters.OrderByDescending(c => cardsInitial.Contains(c[0])).ThenBy(c => c);
+        }
+
+        private void SelectCharacterByInitial(string initial)
+        {
+            var characterMap = new Dictionary<string, RadioButton>
+            {
+                {"A", rdoAdilson}, {"B", rdoBeatriz}, {"C", rdoClaro},
+                {"D", rdoDouglas}, {"E", rdoEduardo}, {"G", rdoGuilherme},
+                {"H", rdoHeredia}, {"K", rdoKelly}, {"L", rdoLeonardo},
+                {"M", rdoMario}, {"Q", rdoQuintas}, {"R", rdoRanulfo},
+                {"T", rdoToshio}
+            };
+
+            if (characterMap.TryGetValue(initial, out RadioButton radioButton))
+            {
+                radioButton.Checked = true;
+            }
         }
 
         public void updateAvaliableSectors(string[] turnStateList)
         {
-            int[] avaliableSectors = new int[]{};
+            int[] avaliableSectors = new int[] { };
             string[] currentTablePositionList = getCurrentTablePosition(turnStateList);
             for (int i = 0; i < currentTablePositionList.Length - 1; i++)
             {
@@ -518,14 +576,14 @@ namespace kingme
                 avaliableSectorsList.Add(characterSector);
                 avaliableSectors = avaliableSectors.Concat(avaliableSectorsList.ToArray()).ToArray();
             }
-            
+
             for (int j = 0; j < avaliableSectors.Length - 1; j++)
             {
                 int sector = avaliableSectors[j];
                 int sectorCount = avaliableSectors.Count(f => f == sector);
                 if (sectorCount == 4)
                 {
-                    removeSectorFromList(sector); 
+                    removeSectorFromList(sector);
                 }
             }
         }
@@ -542,25 +600,227 @@ namespace kingme
             clearSectors();
             var sectors = new[]
             {
-              new Tuple<int, PictureBox>(0, pboSetorZero),
-              new Tuple<int, PictureBox>(1, pboSetorUm),
-              new Tuple<int, PictureBox>(2, pboSetorDois),
-              new Tuple<int, PictureBox>(3, pboSetorTres),
-              new Tuple<int, PictureBox>(4, pboSetorQuatro),
-              new Tuple<int, PictureBox>(5, pboSetorCinco),
-              new Tuple<int, PictureBox>(10, pboSetorDez),
-           };
-            
+                new Tuple<int, PictureBox>(0, pboSetorZero),
+                new Tuple<int, PictureBox>(1, pboSetorUm),
+                new Tuple<int, PictureBox>(2, pboSetorDois),
+                new Tuple<int, PictureBox>(3, pboSetorTres),
+                new Tuple<int, PictureBox>(4, pboSetorQuatro),
+                new Tuple<int, PictureBox>(5, pboSetorCinco),
+                new Tuple<int, PictureBox>(10, pboSetorDez),
+            };
 
-            Button clonedButton = cloneButton(getCharacterButton(this.avaliableCharacters[0].Substring(0, 1)));
-            AddButtonSmart(sectors[this.sectorsList[0]].Item2, clonedButton);
+            foreach (string character in avaliableCharacters)
+            {
+                string characterInitialLetter = character.Substring(0, 1).ToUpper();
+                bool characterPlaced = false;
+
+                foreach (int sector in sectorsList)
+                {
+                    var result = Jogo.ColocarPersonagem(player.GetId(), player.GetPassword(), sector, characterInitialLetter);
+
+                    if (errorHandler.checkForError(result))
+                    {
+                        characterPlaced = true;
+                        break;
+                    }
+                }
+
+                if (!characterPlaced)
+                {
+                    foreach (int sector in sectorsList)
+                    {
+                        int upperSector = sector + 1;
+                        if (!sectorsList.Contains(upperSector)) continue;
+
+                        var result = Jogo.ColocarPersonagem(player.GetId(), player.GetPassword(), upperSector, characterInitialLetter);
+
+                        if (errorHandler.checkForError(result))
+                        {
+                            characterPlaced = true;
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
+        private bool isProcessing = false;
         private void tmrAutomacao_Tick(object sender, EventArgs e)
         {
-            tmrAutomacao.Enabled = false;
-            verifyTurn();
-            tmrAutomacao.Enabled = true;
+            if (isProcessing) { return; }
+
+            isProcessing = true;
+
+            try
+            {
+                string gameState = Jogo.VerificarVez(match.GetId());
+                if (errorHandler.checkForError(gameState))
+                {
+                    if (!isMessageDisplayed)
+                    {
+                        errorHandler.ThrowMessageError("Erro ao verificar o estado do jogo.");
+                        isMessageDisplayed = true;
+                    }
+                    return;
+                }
+
+                if (gameState.Contains(",J,"))
+                {
+                    verifyTurn();
+                }
+                else if (!isMessageDisplayed)
+                {
+                    errorHandler.ThrowMessageError("A partida não iniciou");
+                    isMessageDisplayed = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (!isMessageDisplayed)
+                {
+                    errorHandler.ThrowMessageError($"Erro na automação: {ex.Message}");
+                    isMessageDisplayed = true;
+                }
+            }
+            finally
+            {
+                isProcessing = false;
+            }
+        }
+
+        private void automatePromotion()
+        {
+            //Não mudado
+            try
+            {
+                var characterBySector = GetCharacterBySector();
+
+                foreach (var sectorEntry in characterBySector.OrderBy(s => s.Key))
+                {
+                    foreach (string characterInitial in sectorEntry.Value)
+                    {
+                        if (IsValidCharacter(characterInitial))
+                        {
+                            if (avaliableCharacters.Any(c => c.StartsWith(characterInitial)))
+                            {
+                                SelectCharacterByInitial(characterInitial);
+
+                                string result = Jogo.Promover(player.GetId(), player.GetPassword(), characterInitial);
+
+                                if (!errorHandler.checkForError(result))
+                                {
+                                    removeCharacterFromList(characterInitial);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorHandler.ThrowMessageError($"Erro nas Promoções: {ex.Message}");
+            }
+        }
+
+        private void automateVoting()
+        {
+            string turn = Jogo.VerificarVez(match.GetId());
+            if (errorHandler.checkForError(turn)) { return; }
+
+            string throneCharacter = GetThroneCharacter();
+            if (throneCharacter == SelectedCharacter.Substring(0, 1).ToUpper())
+            {
+                DialogResult result = MessageBox.Show($"Seu Personagem ({SelectedCharacter}) esta no trono. Deseja votar Sim para elegê-lo como rei?", "Votação para Rei", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                bool vote = result == DialogResult.Yes;
+                Jogo.Votar(player.GetId(), player.GetPassword(), (vote ? "S" : "N"));
+            }
+            else
+            {
+                Jogo.Votar(player.GetId(), player.GetPassword(), "N");
+            }
+            automateVerifyTurn();
+        }
+
+        private bool isMessageDisplayed = false;
+        private void automateSetup()
+        {
+            if(avaliableCharacters == null || avaliableCharacters.Length == 0)
+            {
+                errorHandler.ThrowMessageError("Nenhum personagem disponivel para Setup");
+                return;
+            }
+            
+            foreach(string character in avaliableCharacters.ToArray())
+            {
+                string characterInitial = character.Substring(0, 1).ToUpper();
+                foreach(int sector in new[] {3, 2, 1 })
+                {
+                    if(sectorsList.Count(s => s == sector) < 4)
+                    {
+                        string result = Jogo.ColocarPersonagem(player.GetId(), player.GetPassword(), sector, characterInitial);
+
+                        if (!errorHandler.checkForError(result))
+                        {
+                            removeCharacterFromList(characterInitial);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private bool IsValidCharacter(string initial)
+        {
+            return !string.IsNullOrEmpty(initial) && initial.Length == 1 && char.IsLetter(initial[0]);
+        }
+
+        private Dictionary<int, List<string>> GetCharacterBySector()
+        {
+            var characters = new Dictionary<int, List<string>>();
+            string gameState = Jogo.VerificarVez(match.GetId());
+            if (errorHandler.checkForErrorAutomate(gameState)) { return characters; }
+
+            foreach (string line in gameState.Split('\n').Skip(1))
+            {
+                if (string.IsNullOrEmpty(line)) { continue; }
+
+                string[] parts = line.Split(',');
+                if (parts.Length >= 2 && int.TryParse(parts[0], out int sector))
+                {
+                    string initial = parts[1];
+                    if (!characters.ContainsKey(sector))
+                    {
+                        characters[sector] = new List<string>();
+                    }
+                    characters[sector].Add(initial);
+                }
+            }
+            return characters;
+        }        
+
+        private string GetThroneCharacter()
+        {
+            string gameState = Jogo.VerificarVez(match.GetId());
+            if (errorHandler.checkForError(gameState)) { return null; }
+
+            foreach (string line in gameState.Split('\n').Skip(1))
+            {
+                if (line.StartsWith("10, "))
+                {
+                    return line.Split(',')[1];
+                }
+            }
+            return null;
+        }
+
+        private bool ShouldVoteFor(string characterInitial)
+        {
+            if (characterInitial == null) { return false; }
+
+            string playerCards = player.GetCards();
+            return playerCards.Contains(characterInitial);
         }
     }
 }

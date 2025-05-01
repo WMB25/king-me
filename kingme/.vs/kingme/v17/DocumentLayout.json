@@ -1,33 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\",
+  "WorkspaceRootPath": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|c:\\users\\otavi\\documents\\repo\\king-me\\entrega02\\kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|c:\\users\\walis\\onedrive\\documentos\\facul\\coding\\pi 3\\king-me\\kingme\\kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|c:\\users\\otavi\\documents\\repo\\king-me\\entrega02\\kingme\\game.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\game.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\game.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\errorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\errorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D4CAB484-0092-4006-BC5B-1FDA6A86721E}|kingme\\kingme.csproj|solutionrelative:kingme\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -38,97 +42,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Game.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Game.cs",
+              "DocumentIndex": 0,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Game.cs",
               "RelativeDocumentMoniker": "kingme\\Game.cs",
-              "ToolTip": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Game.cs [Design]",
-              "RelativeToolTip": "kingme\\Game.cs [Design]",
+              "ToolTip": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Game.cs",
+              "RelativeToolTip": "kingme\\Game.cs",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAuwPQAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T03:36:54.813Z",
+              "WhenOpened": "2025-04-12T20:59:38.315Z",
               "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Lobby.cs",
-              "DocumentMoniker": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Lobby.cs",
+              "DocumentMoniker": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Lobby.cs",
               "RelativeDocumentMoniker": "kingme\\Lobby.cs",
-              "ToolTip": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Lobby.cs",
+              "ToolTip": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Lobby.cs",
               "RelativeToolTip": "kingme\\Lobby.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAYwCkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAcwDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T00:37:28.013Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Game.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Game.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Game.Designer.cs",
               "RelativeDocumentMoniker": "kingme\\Game.Designer.cs",
-              "ToolTip": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Game.Designer.cs",
+              "ToolTip": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Game.Designer.cs",
               "RelativeToolTip": "kingme\\Game.Designer.cs",
-              "ViewState": "AgIAAM4DAAAAAAAAAAAwwN4DAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAMgDAAAAAAAAAAAYwN0DAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-12T19:57:56.574Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Game.cs",
-              "DocumentMoniker": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Game.cs",
-              "RelativeDocumentMoniker": "kingme\\Game.cs",
-              "ToolTip": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Game.cs",
-              "RelativeToolTip": "kingme\\Game.cs",
-              "ViewState": "AgIAAKEAAAAAAAAAAAA3wKgAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-12T20:59:38.315Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Program.cs",
-              "RelativeDocumentMoniker": "kingme\\Program.cs",
-              "ToolTip": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Program.cs",
-              "RelativeToolTip": "kingme\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAEAAAAAAAAAA==",
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Menu.cs",
+              "RelativeDocumentMoniker": "kingme\\Menu.cs",
+              "ToolTip": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Menu.cs",
+              "RelativeToolTip": "kingme\\Menu.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAmwEMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T20:01:15.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-23T01:19:03.468Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Menu.cs",
-              "DocumentMoniker": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Menu.cs",
-              "RelativeDocumentMoniker": "kingme\\Menu.cs",
-              "ToolTip": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Menu.cs",
-              "RelativeToolTip": "kingme\\Menu.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAiwCYAAAAMAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Program.cs",
+              "RelativeDocumentMoniker": "kingme\\Program.cs",
+              "ToolTip": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Program.cs",
+              "RelativeToolTip": "kingme\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T01:19:03.468Z"
+              "WhenOpened": "2025-03-29T20:01:15.455Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ErrorHandler.cs",
+              "DocumentMoniker": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\ErrorHandler.cs",
+              "RelativeDocumentMoniker": "kingme\\ErrorHandler.cs",
+              "ToolTip": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\ErrorHandler.cs",
+              "RelativeToolTip": "kingme\\ErrorHandler.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAA3wBkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T14:41:59.203Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Game.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Game.cs",
+              "RelativeDocumentMoniker": "kingme\\Game.cs",
+              "ToolTip": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Game.cs [Design]",
+              "RelativeToolTip": "kingme\\Game.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T03:36:54.813Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Menu.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Menu.cs",
+              "DocumentMoniker": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Menu.cs",
               "RelativeDocumentMoniker": "kingme\\Menu.cs",
-              "ToolTip": "C:\\Users\\otavi\\Documents\\repo\\king-me\\Entrega02\\kingme\\Menu.cs [Design]",
+              "ToolTip": "C:\\Users\\walis\\OneDrive\\Documentos\\Facul\\Coding\\PI 3\\king-me\\kingme\\kingme\\Menu.cs [Design]",
               "RelativeToolTip": "kingme\\Menu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-23T01:18:19.993Z"

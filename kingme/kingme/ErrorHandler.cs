@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace kingme
 {
@@ -22,7 +23,7 @@ namespace kingme
         }
 
         public bool checkForErrorAutomate(string content)
-        {
+        {            
             return content.Contains("ERRO");
         }
 
@@ -87,5 +88,18 @@ namespace kingme
             return true;
         }
 
+        public bool HandleServerResponse(string response, string successMassage = "")
+        {
+            if (response.Contains("ERRo"))
+            {
+                ThrowMessageError(response.Substring(5));
+                return true;
+            }
+            if (!string.IsNullOrEmpty(successMassage))
+            {
+                MessageBox.Show(successMassage, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return false;
+        }
     }
 }
