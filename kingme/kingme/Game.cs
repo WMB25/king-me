@@ -1,4 +1,6 @@
-﻿using KingMeServer;
+﻿//Ultimo envio
+
+using KingMeServer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +26,8 @@ namespace kingme
         private string[] avaliableCharacters { get; set; }
         private int[] sectorsList { get; set; }
 
+        private int messageDisplayTime = 0;
+
         Match match = new Match();
         Player player = new Player();
         ErrorHandler errorHandler = new ErrorHandler();
@@ -32,7 +36,7 @@ namespace kingme
         {
             InitializeComponent();
             lblVersion.Text = Jogo.versao;
-            
+
             match.SetId(matchId);
             match.SetPassword(matchPassword);
 
@@ -56,7 +60,7 @@ namespace kingme
                 "Toshio",
             };
 
-           this.avaliableCharacters = new string[]{
+            this.avaliableCharacters = new string[]{
                 "Adilson Konrad",
                 "Beatriz Paiva",
                 "Claro",
@@ -107,7 +111,7 @@ namespace kingme
 
         private void updatePlayerList()
         {
-            List <string> players = match.GetPlayers(match.GetId());
+            List<string> players = match.GetPlayers(match.GetId());
             lstMatchPlayers.Items.Clear();
 
             for (int i = 0; i < players.Count; i++)
@@ -124,7 +128,7 @@ namespace kingme
 
         private void btnListCards_Click(object sender, EventArgs e)
         {
-            listPlayerCards(); 
+            listPlayerCards();
         }
 
         private void btnLeave_Click(object sender, EventArgs e)
@@ -186,11 +190,7 @@ namespace kingme
 
         public void automateVerifyTurn()
         {
-            string turn = Jogo.VerificarVez(match.GetId());
-            if (errorHandler.checkForError(turn))
-            {
-                return;
-            }
+            string turn = Jogo.VerificarVez(match.GetId());           
 
             turn = turn.Replace("\r", "");
             string[] turnStateList = turn.Split('\n');
@@ -203,7 +203,7 @@ namespace kingme
                 string currentTurn = turnStateList[i];
             }
 
-            List <string> players = match.GetPlayers(match.GetId());
+            List<string> players = match.GetPlayers(match.GetId());
 
             for (int i = 0; i < players.Count - 1; i++)
             {
@@ -220,7 +220,7 @@ namespace kingme
             {
                 setCharacterInSector(turnStateList);
             }
-               
+
         }
 
         public string getCharacter()
@@ -266,7 +266,7 @@ namespace kingme
               new Tuple<int, PictureBox>(10, pboSetorDez),
            };
 
-           for (int i = 1; i < gameState.Length - 1; i++)
+            for (int i = 1; i < gameState.Length - 1; i++)
             {
                 string[] characterDetails = gameState[i].Split(',');
                 int characterSector = Convert.ToInt32(characterDetails[0]);
@@ -282,7 +282,7 @@ namespace kingme
                 }
             }
         }
-        
+
         public Button getCharacterButton(string initialLetter)
         {
             var characterButtons = new[]
@@ -440,9 +440,9 @@ namespace kingme
 
         private void updateAvaliableCharacters(string[] turnStateList)
         {
-           string[] currentTablePositionList = getCurrentTablePosition(turnStateList);
-           for (int i = 0; i < currentTablePositionList.Length - 1; i++)
-           {
+            string[] currentTablePositionList = getCurrentTablePosition(turnStateList);
+            for (int i = 0; i < currentTablePositionList.Length - 1; i++)
+            {
                 string line = currentTablePositionList[i];
                 if (String.IsNullOrEmpty(line))
                 {
@@ -465,12 +465,7 @@ namespace kingme
         private void verifyTurn()
         {
             string gameState = Jogo.VerificarVez(match.GetId());
-
-            if (errorHandler.checkForErrorAutomate(gameState))
-            {
-                return;
-            }
-
+            
             gameState = gameState.Replace("\r", "");
             string[] gameStateList = gameState.Split('\n');
             automateVerifyTurn();
@@ -491,9 +486,17 @@ namespace kingme
                     }
 
                     string characterInitialLetter = this.avaliableCharacters[0].Substring(0, 1);
-                    string setCharacter = Jogo.ColocarPersonagem(player.GetId(), player.GetPassword(), this.sectorsList[0], characterInitialLetter);
+                    var setCharacter = Jogo.ColocarPersonagem(player.GetId(), player.GetPassword(), this.sectorsList[0], characterInitialLetter);
 
                     automateVerifyTurn();
+                }
+                else if (phase == "P")
+                {
+                    automatePromotion();
+                }
+                else if (phase == "V")
+                {
+                    automateVoting();
                 }
             }
 
@@ -502,7 +505,7 @@ namespace kingme
 
         public void updateAvaliableSectors(string[] turnStateList)
         {
-            int[] avaliableSectors = new int[]{};
+            int[] avaliableSectors = new int[] { };
             string[] currentTablePositionList = getCurrentTablePosition(turnStateList);
             for (int i = 0; i < currentTablePositionList.Length - 1; i++)
             {
@@ -518,14 +521,14 @@ namespace kingme
                 avaliableSectorsList.Add(characterSector);
                 avaliableSectors = avaliableSectors.Concat(avaliableSectorsList.ToArray()).ToArray();
             }
-            
+
             for (int j = 0; j < avaliableSectors.Length - 1; j++)
             {
                 int sector = avaliableSectors[j];
                 int sectorCount = avaliableSectors.Count(f => f == sector);
                 if (sectorCount == 4)
                 {
-                    removeSectorFromList(sector); 
+                    removeSectorFromList(sector);
                 }
             }
         }
@@ -542,25 +545,105 @@ namespace kingme
             clearSectors();
             var sectors = new[]
             {
-              new Tuple<int, PictureBox>(0, pboSetorZero),
-              new Tuple<int, PictureBox>(1, pboSetorUm),
-              new Tuple<int, PictureBox>(2, pboSetorDois),
-              new Tuple<int, PictureBox>(3, pboSetorTres),
-              new Tuple<int, PictureBox>(4, pboSetorQuatro),
-              new Tuple<int, PictureBox>(5, pboSetorCinco),
-              new Tuple<int, PictureBox>(10, pboSetorDez),
-           };
-            
+                new Tuple<int, PictureBox>(0, pboSetorZero),
+                new Tuple<int, PictureBox>(1, pboSetorUm),
+                new Tuple<int, PictureBox>(2, pboSetorDois),
+                new Tuple<int, PictureBox>(3, pboSetorTres),
+                new Tuple<int, PictureBox>(4, pboSetorQuatro),
+                new Tuple<int, PictureBox>(5, pboSetorCinco),
+                new Tuple<int, PictureBox>(10, pboSetorDez),
+            };
 
-            Button clonedButton = cloneButton(getCharacterButton(this.avaliableCharacters[0].Substring(0, 1)));
-            AddButtonSmart(sectors[this.sectorsList[0]].Item2, clonedButton);
+            foreach (string character in avaliableCharacters)
+            {
+                string characterInitialLetter = character.Substring(0, 1).ToUpper();
+                bool characterPlaced = false;
+
+                foreach (int sector in sectorsList)
+                {
+                    var result = Jogo.ColocarPersonagem(player.GetId(), player.GetPassword(), sector, characterInitialLetter);                    
+                }
+
+                if (!characterPlaced)
+                {
+                    foreach (int sector in sectorsList)
+                    {
+                        int upperSector = sector + 1;
+                        if (!sectorsList.Contains(upperSector)) continue;
+
+                        var result = Jogo.ColocarPersonagem(player.GetId(), player.GetPassword(), upperSector, characterInitialLetter);
+                    }
+                }
+            }
         }
 
         private void tmrAutomacao_Tick(object sender, EventArgs e)
         {
-            tmrAutomacao.Enabled = false;
+            if (messageDisplayTime > 0)
+            {
+                messageDisplayTime -= tmrAutomacao.Interval;
+
+            }
             verifyTurn();
-            tmrAutomacao.Enabled = true;
+        }
+
+        private void automatePromotion()
+        {
+            List<string> charactersOnBoard = GetCharactersOnBoard();
+
+            if (charactersOnBoard.Count == 0) { return; }
+
+            //logica 
+
+            foreach (string initial in charactersOnBoard)
+            {
+                var result = Jogo.Promover(player.GetId(), player.GetPassword(), initial);
+            }
+
+            automateVerifyTurn();
+        }
+
+        private void automateVoting()
+        {
+            if (avaliableCharacters.Length == 0)
+            {
+                return;
+            }
+
+            //Quest
+            //DialogResult result = MessageBox.Show("Você deseja eleger o personagem?", "Confirmação de Voto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //string vote = result == DialogResult.Yes ? "S" : "N";
+            //Jogo.Votar(player.GetId(), player.GetPassword(), vote);            
+
+            foreach (string character in avaliableCharacters)
+            {
+                string vote = "S";//Retirar voto fixo
+                Jogo.Votar(player.GetId(), player.GetPassword(), vote);
+            }
+
+            tmrAutomacao.Enabled = false;
+            automateVerifyTurn();
+        }
+        private List<string> GetCharactersOnBoard()
+        {
+            List<string> charactersOnBoard = new List<string>();
+
+            var gameState = Jogo.VerificarVez(match.GetId());            
+
+            gameState = gameState.Replace("\r", "");
+            string[] gameStateList = gameState.Split('\n');
+
+            foreach (string line in gameStateList)
+            {
+                if (string.IsNullOrEmpty(line)) continue;
+
+                string[] characterDetails = line.Split(',');
+                if (characterDetails.Length > 1)
+                {
+                    charactersOnBoard.Add(characterDetails[1]);
+                }
+            }
+            return charactersOnBoard;
         }
     }
 }
