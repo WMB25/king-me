@@ -92,5 +92,11 @@ namespace kingme
         {
             this.Close();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            label6.Text = Jogo.ListarSetores();
+
+        }
     }
 }
